@@ -1,13 +1,17 @@
 class Solution(object):
     def removeElement(self, nums, val):
-        nums.remove(val)
-        for x in nums:
-            if x == val:
-                nums.remove(x)
-
-        k = len(nums)
+        k = 0
+        i = 0
+        if val in nums:
+            for x in nums:
+                if x != val:
+                    nums[i] = x
+                    i=i+1
+            k = i
+        else:
+            k = len(nums)
         return k
     
 c = Solution()
-print(c.removeElement([1,1,2,1,2,3,4,5,5], 1))
+print(c.removeElement([2], 3))
 
